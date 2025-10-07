@@ -6,8 +6,9 @@ import "fmt"
 // Funções exportadas começam com letras maiúculas 
 // funções não exportadas começam com letras minúsculas
 
-func SayHello () {
+func SayHello () string {
 	var userName string = getName()
 
 	fmt.Printf("\nOlá %s! \nÉ um prazer te-lo aqui comigo durante esse aprendizado de golang.", userName)
+	return  userName
 }
