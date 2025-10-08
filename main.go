@@ -1,11 +1,23 @@
 package main
 
 import (
-	"helloWOrld/meet"
-	stringmethods "helloWOrld/stringMethods"
+	"fmt"
+	linkedList "helloWOrld/linkedLIst"
 )
 
+
+
 func main () {
-	var userName = meet.SayHello()
-	stringmethods.NameLenght(userName)
+	var linkedList = linkedList.LinkedList{}	
+	
+	linkedList.ShowAll()
+
+	fmt.Printf("\nadicionando valores....\n")
+
+	linkedList.AppendNode("Node 01")
+	linkedList.AppendNode("Node 02")
+	linkedList.AppendNode("Node 03")
+	linkedList.AppendNode("Node 04")
+
+	linkedList.ShowAll()
 }
