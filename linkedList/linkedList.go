@@ -1,4 +1,8 @@
-package linkedList
+/*
+Package linkedlist fornece estruturas e funções para manipulação
+de listas encadeadas simples.
+*/
+package linkedlist
 
 import "fmt"
 
@@ -7,8 +11,9 @@ type LinkedList struct {
 }
 
 /*
-	Função que adiciona um novo nô dentro da nossa lista encadeada.
-		Recebe uma string como parâmetro
+AppendNode é uma função que adiciona um novo nô dentro da nossa lista encadeada.
+
+	Recebe uma string como parâmetro
 */
 func (list *LinkedList) AppendNode(data string) {
 	var newNode *Node = &Node{data: data}
@@ -28,7 +33,7 @@ func (list *LinkedList) AppendNode(data string) {
 }
 
 /*
-Função responsável por apresentar todos os elementos da lista
+ShowAll é uma função responsável por apresentar todos os elementos da lista
 */
 func (list *LinkedList) ShowAll() {
 	var currentNode = list.FirstNode
@@ -47,7 +52,7 @@ func (list *LinkedList) ShowAll() {
 }
 
 /*
-Função responsável por retornar o tamanho atual da lista.
+Size é uma função responsável por retornar o tamanho atual da lista.
 */
 func (list *LinkedList) Size() int {
 	var currentNode = list.FirstNode
@@ -66,7 +71,7 @@ func (list *LinkedList) Size() int {
 }
 
 /*
-Função responsável por procurar um elemento específo dentro de uma lista e retornar esse elemento.
+FindNode é uma função responsável por procurar um elemento específo dentro de uma lista e retornar esse elemento.
 */
 func (list *LinkedList) FindNode(findValue string) *Node {
 	var currentNode = list.FirstNode
@@ -87,7 +92,7 @@ func (list *LinkedList) FindNode(findValue string) *Node {
 }
 
 /*
-Função responsável por informar se um elemento existe em uma lista e retornar um valor booleano correspondente
+Contains é uma função responsável por informar se um elemento existe em uma lista e retornar um valor booleano correspondente
 */
 func (list *LinkedList) Contains(node *Node) bool {
 	var currentNode = list.FirstNode
@@ -113,6 +118,8 @@ func (list *LinkedList) Contains(node *Node) bool {
 	(i) Inserir - Insere um elemento na lista
 	(g) mostrarALL - Retorna todos os elementos da lista
 	(e) Tamanho - Retorna o tamanho da lista
+	(f) Existe - Retorna se um n ́o existe na lista
+	(h) Buscar - Retorna se o n ́o cont ́em na lista
 
 
 	restantes a serem feitas :
@@ -124,8 +131,7 @@ delea
 do n ́o referenciado
 
 
-(f) Existe - Retorna se um n ́o existe na lista
-(h) Buscar - Retorna se o n ́o cont ́em na lista
+
 
 (j) Excluir - Exclui um elemento da list
 (k) Destrutor - Destr ́oi um n ́o

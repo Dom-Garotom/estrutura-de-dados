@@ -1,15 +1,13 @@
-package linkedList
+package linkedlist
 
-/*
-Nô de dados que aponta para o próximo elemento de um lista encadeada.
-*/
 type Node struct {
 	data     string
 	nextNode *Node
 }
 
 /*
-Função responsável por criar um novo nô
+NewNode é uma função responsável por criar um novo nô
+
 	Retorna um novo nô
 */
 func NewNode(value string) *Node {
