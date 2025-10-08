@@ -102,7 +102,7 @@ func (list *LinkedList) Contains(node *Node) bool {
 	}
 
 	for currentNode != nil {
-		if &currentNode == &node {
+		if currentNode == node {
 			return true
 		}
 
@@ -113,10 +113,34 @@ func (list *LinkedList) Contains(node *Node) bool {
 }
 
 /*
-GetValue é uma função responsável por retornar o valor de um nô que tem o acesso privado a outro modulos.
+GetValue é uma função responsável por retornar o valor de um nô que tem o acesso privado a outros modulos.
 */
 func (list *LinkedList) GetValue(node *Node) string {
 	return node.data
+}
+
+/*
+UpdateNode é um função responsável por alterar o valor de um nô presente na lista encadeada.
+
+	Recebe um nô e o novo valor como parâmetros.
+*/
+func (list *LinkedList) UpdateNode(node *Node, value string) {
+	var currentNode = list.FirstNode
+
+	if value == "" || currentNode == nil {
+		return
+	}
+
+	for currentNode != nil {
+		if currentNode == node {
+			currentNode.data = value
+			return
+		}
+
+		currentNode = currentNode.nextNode
+	}
+
+	fmt.Printf("\nNão foi possível alterar o valor do nô passado\n")
 }
 
 /*
@@ -127,20 +151,13 @@ func (list *LinkedList) GetValue(node *Node) string {
 	(e) Tamanho - Retorna o tamanho da lista
 	(f) Existe - Retorna se um n ́o existe na lista
 	(h) Buscar - Retorna se o n ́o cont ́em na lista
-	(c) ObterValor - Recebe como argumento um n ́o e retorna os valores armazenados dentro
-delea
-
-
+	(c) ObterValor - Recebe como argumento um n ́o e retorna os valores armazenados dentro dele
+	(d) AlterarNo - Recebe como argumento um n ́o e dois interios para alterar as informa ̧c ̃oes do n ́o referenciado
+	
 	restantes a serem feitas :
 
 (b) ObterProximo - Recebe como argumento um n ́o e retorna o pr ́oximo
-
-(d) AlterarNo - Recebe como argumento um n ́o e dois interios para alterar as informa ̧c ̃oes
-do n ́o referenciado
-
-
-
-
 (j) Excluir - Exclui um elemento da list
 (k) Destrutor - Destr ́oi um n ́o
+
 */

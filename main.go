@@ -8,8 +8,6 @@ import (
 func main() {
 	var linkedList = moduleLinkedList.LinkedList{}
 
-	linkedList.ShowAll()
-
 	fmt.Printf("\nadicionando valores....\n")
 
 	linkedList.AppendNode("Node 01")
@@ -18,26 +16,12 @@ func main() {
 	linkedList.AppendNode("Node 04")
 
 	linkedList.ShowAll()
-	fmt.Printf("\nTamanho final da lista : %d\n", linkedList.Size())
 
-	fmt.Printf("\nProcurando por Node 01....\n")
+	fmt.Printf("\nAtualizando os valores....\n")
 
-	node := linkedList.FindNode("Node 01")
+	secondNode := linkedList.FindNode("Node 02")
+	linkedList.UpdateNode(secondNode, "New Node 02")
 
-	if node == nil {
-		fmt.Printf("\n\nNode 01 não foi encontrado.\n")
-		return
-	}
-
-	fmt.Printf("Elemento encontrado ")
-
-	fmt.Printf("\n\nVerificando se um ponteiro aleátorio existe em nossa lista.....\n\n")
-
-	var ptr = moduleLinkedList.NewNode("Novo node")
-	var exist bool = linkedList.Contains(ptr)
-
-	if !exist {
-		fmt.Printf("\nPonteiro '%s' não existe na lista encadeada", linkedList.GetValue(ptr))
-	}
+	linkedList.ShowAll()
 
 }
