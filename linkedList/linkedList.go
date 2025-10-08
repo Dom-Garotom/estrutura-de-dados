@@ -165,6 +165,44 @@ func (list *LinkedList) GetNextNode(node *Node) *Node {
 }
 
 /*
+DeleteNode é uma função responsável por excluir um elemento da lista encadeada.
+
+	Recebe como parâmetro o nô que será removido.
+*/
+func (list *LinkedList) DeleteNode(node *Node) {
+	if list.FirstNode == nil || node == nil {
+		return
+	}
+
+	if list.FirstNode == node {
+		list.FirstNode = list.FirstNode.nextNode
+		return
+	}
+
+	var previousNode *Node = list.FirstNode
+	var currentNode *Node = list.FirstNode.nextNode
+
+	for currentNode != nil {
+		if currentNode == node {
+			previousNode.nextNode = currentNode.nextNode
+			return
+		}
+		previousNode = currentNode
+		currentNode = currentNode.nextNode
+	}
+
+	fmt.Printf("\nNão foi possível excluir o nô informado, pois ele não existe na lista.\n")
+}
+
+/*
+Destroy é uma função responsável por destruir toda a lista encadeada, liberando as referências de memória utilizadas.
+*/
+func (list *LinkedList) Destroy() {
+	list.FirstNode = nil
+	fmt.Printf("\nLista destruída com sucesso.\n")
+}
+
+/*
 	concluidas :
 	(a) Construtor - Inicializa a classe
 	(i) Inserir - Insere um elemento na lista
@@ -175,10 +213,7 @@ func (list *LinkedList) GetNextNode(node *Node) *Node {
 	(c) ObterValor - Recebe como argumento um n ́o e retorna os valores armazenados dentro dele
 	(d) AlterarNo - Recebe como argumento um n ́o e dois interios para alterar as informa ̧c ̃oes do n ́o referenciado
 	(b) ObterProximo - Recebe como argumento um n ́o e retorna o pr ́oximo
+	(j) Excluir - Exclui um elemento da list
+	(k) Destrutor - Destr ́oi um n ́o
 	restantes a serem feitas :
-
-
-(j) Excluir - Exclui um elemento da list
-(k) Destrutor - Destr ́oi um n ́o
-
 */
