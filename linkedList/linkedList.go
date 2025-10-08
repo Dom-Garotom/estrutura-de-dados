@@ -113,6 +113,13 @@ func (list *LinkedList) Contains(node *Node) bool {
 }
 
 /*
+GetValue é uma função responsável por retornar o valor de um nô que tem o acesso privado a outro modulos.
+*/
+func (list *LinkedList) GetValue(node *Node) string {
+	return node.data
+}
+
+/*
 	concluidas :
 	(a) Construtor - Inicializa a classe
 	(i) Inserir - Insere um elemento na lista
@@ -120,13 +127,14 @@ func (list *LinkedList) Contains(node *Node) bool {
 	(e) Tamanho - Retorna o tamanho da lista
 	(f) Existe - Retorna se um n ́o existe na lista
 	(h) Buscar - Retorna se o n ́o cont ́em na lista
+	(c) ObterValor - Recebe como argumento um n ́o e retorna os valores armazenados dentro
+delea
 
 
 	restantes a serem feitas :
 
 (b) ObterProximo - Recebe como argumento um n ́o e retorna o pr ́oximo
-(c) ObterValor - Recebe como argumento um n ́o e retorna os valores armazenados dentro
-delea
+
 (d) AlterarNo - Recebe como argumento um n ́o e dois interios para alterar as informa ̧c ̃oes
 do n ́o referenciado
 

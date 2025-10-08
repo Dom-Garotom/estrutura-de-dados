@@ -31,13 +31,13 @@ func main() {
 
 	fmt.Printf("Elemento encontrado ")
 
-	fmt.Printf("\n\nVerificando se um ponteiro aleátorio existe em nossa lista.....")
+	fmt.Printf("\n\nVerificando se um ponteiro aleátorio existe em nossa lista.....\n\n")
 
 	var ptr = moduleLinkedList.NewNode("Novo node")
 	var exist bool = linkedList.Contains(ptr)
 
 	if !exist {
-		fmt.Printf("\nPonteiro não existe na lista encadeada")
+		fmt.Printf("\nPonteiro '%s' não existe na lista encadeada", linkedList.GetValue(ptr))
 	}
 
 }
