@@ -41,8 +41,28 @@ func (list *LinkedList) ShowAll(){
 
 	fmt.Printf("\nLista de elementos : \n")
 
-	for currentNode.nextNode != nil {
+	for currentNode != nil {
 		fmt.Printf("Elemento - %s\n", currentNode.data)
 		currentNode = currentNode.nextNode
 	}
+}
+
+
+/*
+	Função responsável por retornar o tamanho atual da lista.
+*/
+func (list *LinkedList) Size() int {
+	var currentNode = list.FirstNode
+	var count int
+
+	if currentNode == nil{
+		return  0
+	}
+
+	for currentNode != nil {
+		count++
+		currentNode = currentNode.nextNode
+	}
+	
+	return count
 }

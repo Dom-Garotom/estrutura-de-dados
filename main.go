@@ -20,4 +20,5 @@ func main () {
 	linkedList.AppendNode("Node 04")
 
 	linkedList.ShowAll()
+	fmt.Printf("\nTamanho final da lista : %d\n", linkedList.Size())
 }
