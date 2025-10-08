@@ -2,14 +2,12 @@ package main
 
 import (
 	"fmt"
-	linkedList "helloWOrld/linkedLIst"
+	moduleLinkedList "helloWOrld/linkedList"
 )
 
+func main() {
+	var linkedList = moduleLinkedList.LinkedList{}
 
-
-func main () {
-	var linkedList = linkedList.LinkedList{}	
-	
 	linkedList.ShowAll()
 
 	fmt.Printf("\nadicionando valores....\n")
@@ -21,4 +19,25 @@ func main () {
 
 	linkedList.ShowAll()
 	fmt.Printf("\nTamanho final da lista : %d\n", linkedList.Size())
+
+	fmt.Printf("\nProcurando por Node 01....\n")
+
+	node := linkedList.FindNode("Node 01")
+
+	if node == nil {
+		fmt.Printf("\n\nNode 01 não foi encontrado.\n")
+		return
+	}
+
+	fmt.Printf("Elemento encontrado ")
+
+	fmt.Printf("\n\nVerificando se um ponteiro aleátorio existe em nossa lista.....")
+
+	var ptr = moduleLinkedList.NewNode("Novo node")
+	var exist bool = linkedList.Contains(ptr)
+
+	if !exist {
+		fmt.Printf("\nPonteiro não existe na lista encadeada")
+	}
+
 }
