@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	linkedlist "helloWOrld/linkedList"
+	linkedlist "questao01/linkedList"
 )
 
 // Informando aqui o import acima da linkedList é o modulo criado por mim da lista encadeada segundo a questão 01 e 02 da atividade de listas encadeadas.
