@@ -144,6 +144,27 @@ func (list *LinkedList) UpdateNode(node *Node, value string) {
 }
 
 /*
+GetNextNode é um função responsável por retornar o nô subsequente ao que foi apresentado no parâmetro da função
+*/
+func (list *LinkedList) GetNextNode(node *Node) *Node {
+	var currentNode = list.FirstNode
+
+	if node == nil || currentNode == nil {
+		return nil
+	}
+
+	for currentNode != nil {
+		if currentNode == node && currentNode.nextNode != nil {
+			return currentNode.nextNode
+		}
+
+		currentNode = currentNode.nextNode
+	}
+
+	return nil
+}
+
+/*
 	concluidas :
 	(a) Construtor - Inicializa a classe
 	(i) Inserir - Insere um elemento na lista
@@ -153,10 +174,10 @@ func (list *LinkedList) UpdateNode(node *Node, value string) {
 	(h) Buscar - Retorna se o n ́o cont ́em na lista
 	(c) ObterValor - Recebe como argumento um n ́o e retorna os valores armazenados dentro dele
 	(d) AlterarNo - Recebe como argumento um n ́o e dois interios para alterar as informa ̧c ̃oes do n ́o referenciado
-	
+	(b) ObterProximo - Recebe como argumento um n ́o e retorna o pr ́oximo
 	restantes a serem feitas :
 
-(b) ObterProximo - Recebe como argumento um n ́o e retorna o pr ́oximo
+
 (j) Excluir - Exclui um elemento da list
 (k) Destrutor - Destr ́oi um n ́o
 

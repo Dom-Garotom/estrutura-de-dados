@@ -20,8 +20,8 @@ func main() {
 	fmt.Printf("\nAtualizando os valores....\n")
 
 	secondNode := linkedList.FindNode("Node 02")
-	linkedList.UpdateNode(secondNode, "New Node 02")
-
-	linkedList.ShowAll()
+	thirdNode := linkedList.GetNextNode(secondNode)
+	thirdValue := linkedList.GetValue(thirdNode)
+	fmt.Print(thirdValue)
 
 }
