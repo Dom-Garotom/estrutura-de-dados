@@ -7,7 +7,11 @@ package stack
 import "fmt"
 
 type Stack struct {
-	LastIn *Node
+	lastIn *Node
+}
+
+func CreateStack() *Stack {
+	return &Stack{}
 }
 
 /*
@@ -22,19 +26,19 @@ func (stack *Stack) AddToTop(value string) {
 	}
 
 	currentNode := NewNode(value)
-	currentNode.nextNode = stack.LastIn
+	currentNode.nextNode = stack.lastIn
 
-	stack.LastIn = currentNode
+	stack.lastIn = currentNode
 }
 
 /*RemoveFromTop é um função responsável por remover o elemento que fica localizado no topo da pilha de elementos.*/
 func (stack *Stack) RemoveFromTop() bool {
-	if stack.LastIn == nil {
+	if stack.lastIn == nil {
 		fmt.Printf("\nNão foi possível remover o ultimo elemento da pilha porque a pilha  estava vazia")
 		return false
 	}
 
-	stack.LastIn = stack.LastIn.nextNode
+	stack.lastIn = stack.lastIn.nextNode
 	return true
 }
 
@@ -44,12 +48,12 @@ ViewTheTop é um função responsável por mostrar o valor do elemento localizad
 	Retorna uma string contendo o valor do elemento presente no topo da pilha
 */
 func (stack *Stack) ViewTheTop() string {
-	if stack.LastIn == nil {
+	if stack.lastIn == nil {
 		fmt.Printf("\nA lista está vazia")
 		return ""
 	}
 
-	return stack.LastIn.data
+	return stack.lastIn.data
 }
 
 /*
@@ -58,5 +62,5 @@ IsEmpty é uma função responsável por informar se a pilha de elemento está v
 	retorna um bool com resultado da verificação.
 */
 func (stack *Stack) IsEmpty() bool {
-	return stack.LastIn == nil
+	return stack.lastIn == nil
 }
