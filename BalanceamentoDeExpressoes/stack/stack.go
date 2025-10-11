@@ -37,3 +37,26 @@ func (stack *Stack) RemoveFromTop() bool {
 	stack.LastIn = stack.LastIn.nextNode
 	return true
 }
+
+/*
+ViewTheTop é um função responsável por mostrar o valor do elemento localizado no topo da pilha de elementos.
+
+	Retorna uma string contendo o valor do elemento presente no topo da pilha
+*/
+func (stack *Stack) ViewTheTop() string {
+	if stack.LastIn == nil {
+		fmt.Printf("\nA lista está vazia")
+		return ""
+	}
+
+	return stack.LastIn.data
+}
+
+/*
+IsEmpty é uma função responsável por informar se a pilha de elemento está vazia.
+
+	retorna um bool com resultado da verificação.
+*/
+func (stack *Stack) IsEmpty() bool {
+	return stack.LastIn == nil
+}
