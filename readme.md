@@ -10,7 +10,8 @@ As implementações estão organizadas por tópicos, utilizando principalmente a
 
 ### Atividade e desáfios aplicados :
 
-📌 [Atividade de lista encadeadas e polinômios](AtividadeDeListas)
+📌 [Atividade de lista encadeadas e polinômios](AtividadeDeListas)   
+📌 [Atividade de pilhas -  Balanceamento de expressões](BalanceamentoDeExpressoes)   
 
 
 
