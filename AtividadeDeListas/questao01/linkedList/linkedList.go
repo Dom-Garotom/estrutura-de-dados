@@ -35,7 +35,7 @@ func (list *LinkedList) AppendNode(data string) {
 /*
 ShowAll é uma função responsável por apresentar todos os elementos da lista
 */
-func (list *LinkedList) ShowAll() {
+func (list LinkedList) ShowAll() {
 	var currentNode = list.FirstNode
 
 	if currentNode == nil {
@@ -54,7 +54,7 @@ func (list *LinkedList) ShowAll() {
 /*
 Size é uma função responsável por retornar o tamanho atual da lista.
 */
-func (list *LinkedList) Size() int {
+func (list LinkedList) Size() int {
 	var currentNode = list.FirstNode
 	var count int
 
@@ -73,7 +73,7 @@ func (list *LinkedList) Size() int {
 /*
 FindNode é uma função responsável por procurar um elemento específo dentro de uma lista e retornar esse elemento.
 */
-func (list *LinkedList) FindNode(findValue string) *Node {
+func (list LinkedList) FindNode(findValue string) *Node {
 	var currentNode = list.FirstNode
 
 	if findValue == "" || currentNode == nil {
@@ -94,7 +94,7 @@ func (list *LinkedList) FindNode(findValue string) *Node {
 /*
 Contains é uma função responsável por informar se um elemento existe em uma lista e retornar um valor booleano correspondente
 */
-func (list *LinkedList) Contains(node *Node) bool {
+func (list LinkedList) Contains(node *Node) bool {
 	var currentNode = list.FirstNode
 
 	if currentNode == nil || node == nil {
@@ -115,7 +115,7 @@ func (list *LinkedList) Contains(node *Node) bool {
 /*
 GetValue é uma função responsável por retornar o valor de um nô que tem o acesso privado a outros modulos.
 */
-func (list *LinkedList) GetValue(node *Node) string {
+func (list LinkedList) GetValue(node *Node) string {
 	return node.data
 }
 
@@ -124,7 +124,7 @@ UpdateNode é um função responsável por alterar o valor de um nô presente na
 
 	Recebe um nô e o novo valor como parâmetros.
 */
-func (list *LinkedList) UpdateNode(node *Node, value string) {
+func (list LinkedList) UpdateNode(node *Node, value string) {
 	var currentNode = list.FirstNode
 
 	if value == "" || currentNode == nil {
@@ -133,7 +133,7 @@ func (list *LinkedList) UpdateNode(node *Node, value string) {
 
 	for currentNode != nil {
 		if currentNode == node {
-			currentNode.data = value
+			node.data = value
 			return
 		}
 
@@ -146,7 +146,7 @@ func (list *LinkedList) UpdateNode(node *Node, value string) {
 /*
 GetNextNode é um função responsável por retornar o nô subsequente ao que foi apresentado no parâmetro da função
 */
-func (list *LinkedList) GetNextNode(node *Node) *Node {
+func (list LinkedList) GetNextNode(node *Node) *Node {
 	var currentNode = list.FirstNode
 
 	if node == nil || currentNode == nil {

@@ -47,7 +47,7 @@ ViewTheTop é um função responsável por mostrar o valor do elemento localizad
 
 	Retorna uma string contendo o valor do elemento presente no topo da pilha
 */
-func (stack *Stack) ViewTheTop() string {
+func (stack Stack) ViewTheTop() string {
 	if stack.lastIn == nil {
 		fmt.Printf("\nA lista está vazia")
 		return ""
@@ -61,6 +61,16 @@ IsEmpty é uma função responsável por informar se a pilha de elemento está v
 
 	retorna um bool com resultado da verificação.
 */
-func (stack *Stack) IsEmpty() bool {
+func (stack Stack) IsEmpty() bool {
 	return stack.lastIn == nil
+}
+
+/*ViewStack é uma função auxiliar responsável por mostar os elementos da pilha de elementos. Essa função está presente somente para fins de debug*/
+func (stack Stack) ViewStack() {
+	fmt.Printf("\n\nElementos dentro da stack :")
+
+	for stack.lastIn != nil {
+		fmt.Printf("\n%s", stack.lastIn.data)
+		stack.lastIn = stack.lastIn.nextNode
+	}
 }

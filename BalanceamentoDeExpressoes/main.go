@@ -1,24 +1,56 @@
 package main
 
 import (
+	//"fmt"
 	"fmt"
+	"strings"
 
 	"github.com/Dom-Garotom/BalanceamentoDeExpressoes/stack"
 )
 
-func main() {
+func isExpressionBalanced() bool {
 
-	// recebemos um expressão
+	const exp string = "{[({[}]})]}"
 
-	const exp string = "{[()]}"
 	const openCharacter string = "{[("
 	const closeCharacter string = "}])"
+	pairs := map[string]string{
+		"}": "{",
+		"]": "[",
+		")": "(",
+	}
 
-	var stack = stack.CreateStack()
-	fmt.Print(stack.IsEmpty())
-	// salvamos os valores de abertura em uma pilha
+	var expressionStack = stack.CreateStack()
 
-	// verificamos se os valores de abertura e fechamento batem
+	for _, character := range exp {
+		if strings.Contains(openCharacter, string(character)) {
+			expressionStack.AddToTop(string(character))
+		}
 
-	// retornamos os resultados
+		if strings.Contains(closeCharacter, string(character)) {
+			if expressionStack.IsEmpty() {
+				return false
+			}
+
+			currentCharacter := string(character)
+			top := expressionStack.ViewTheTop()
+
+			if top != pairs[currentCharacter] {
+				return false
+			}
+
+			expressionStack.RemoveFromTop()
+		}
+		expressionStack.ViewStack()
+	}
+
+	fmt.Printf("\n\nRun final")
+	expressionStack.ViewStack()
+
+	return true
+}
+
+func main() {
+	result := isExpressionBalanced()
+	fmt.Printf("Result ", result)
 }
