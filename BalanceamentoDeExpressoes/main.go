@@ -1,56 +1,46 @@
 package main
 
 import (
-	//"fmt"
+	"bufio"
 	"fmt"
-	"strings"
+	"os"
 
-	"github.com/Dom-Garotom/BalanceamentoDeExpressoes/stack"
+	expressionbalanced "github.com/Dom-Garotom/BalanceamentoDeExpressoes/isExpressionBalanced"
 )
 
-func isExpressionBalanced() bool {
-
-	const exp string = "{[({[}]})]}"
-
-	const openCharacter string = "{[("
-	const closeCharacter string = "}])"
-	pairs := map[string]string{
-		"}": "{",
-		"]": "[",
-		")": "(",
-	}
-
-	var expressionStack = stack.CreateStack()
-
-	for _, character := range exp {
-		if strings.Contains(openCharacter, string(character)) {
-			expressionStack.AddToTop(string(character))
-		}
-
-		if strings.Contains(closeCharacter, string(character)) {
-			if expressionStack.IsEmpty() {
-				return false
-			}
-
-			currentCharacter := string(character)
-			top := expressionStack.ViewTheTop()
-
-			if top != pairs[currentCharacter] {
-				return false
-			}
-
-			expressionStack.RemoveFromTop()
-		}
-		expressionStack.ViewStack()
-	}
-
-	fmt.Printf("\n\nRun final")
-	expressionStack.ViewStack()
-
-	return true
-}
-
 func main() {
-	result := isExpressionBalanced()
-	fmt.Printf("Result ", result)
+	file, error := os.Open("expression.txt")
+
+	if error != nil {
+		fmt.Println("Erro ao abrir o arquivo de expressões")
+		return
+	}
+
+	defer file.Close()
+
+	fmt.Println("\033[36m\n\nResultado do balanceamento das expressões :\033[0m")
+	fmt.Printf("\nExpressões  %29s Resultados ", "")
+
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		line := scanner.Text()
+
+		if line == "" {
+			continue
+		}
+
+		result := expressionbalanced.IsExpressionBalanced(line)
+
+		if result {
+			fmt.Printf("\n%-40s \033[36m está balanceada\033[0m", line)
+		} else {
+			fmt.Printf("\n%-40s \033[31m não está balanceada\033[0m", line)
+		}
+	}
+
+	if err := scanner.Err(); err != nil {
+		fmt.Println("Erro ao ler arquivo:", err)
+		return
+	}
 }
