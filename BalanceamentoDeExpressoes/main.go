@@ -8,8 +8,15 @@ import (
 	expressionbalanced "github.com/Dom-Garotom/BalanceamentoDeExpressoes/isExpressionBalanced"
 )
 
+/*
+Main ->  Contém o código de exibição que você está vendo.
+Data -> Contém o arquivo de texto com as expressões a serem verificadas.
+isExpressionBalanced -> Contém o código da função que faz a verificação do balanceamento de uma expressõa.
+Satck -> contém o código da implementação da pilha usada para resolver o desáfio.
+*/
+
 func main() {
-	file, error := os.Open("expression.txt")
+	file, error := os.Open("data/expression.txt")
 
 	if error != nil {
 		fmt.Println("Erro ao abrir o arquivo de expressões")

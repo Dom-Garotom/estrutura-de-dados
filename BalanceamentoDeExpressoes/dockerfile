@@ -1,0 +1,15 @@
+FROM golang:1.25.1-alpine AS builder
+WORKDIR /app
+COPY . .
+RUN go build -o meu-app
+
+FROM alpine:latest
+WORKDIR /app
+
+# Copia binário compilado
+COPY --from=builder /app/meu-app .
+
+# Copia a pasta de arquivos de texto
+COPY --from=builder /app/data ./data
+
+CMD ["./meu-app"]
