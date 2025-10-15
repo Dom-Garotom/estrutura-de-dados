@@ -12,7 +12,7 @@ As implementações estão organizadas por tópicos, utilizando principalmente a
 
 📌 [Atividade de lista encadeadas e polinômios](AtividadeDeListas)   
 📌 [Atividade de pilhas -  Balanceamento de expressões](BalanceamentoDeExpressoes)   
-
+📌 [Atividade de escrita de código -  Clean Code](CleanCode/)   
 
 
 <br>
