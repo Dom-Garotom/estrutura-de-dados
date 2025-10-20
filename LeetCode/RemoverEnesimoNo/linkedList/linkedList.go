@@ -21,11 +21,11 @@ func RemoveNthNodeFromEndList(head *LinkedList, removeSteps int) *LinkedList {
 
 	for i := range removePoint {
 		if i == (removePoint - 1) {
-			currentNode.nextNode = currentNode.nextNode.nextNode
+			currentNode.NextNode = currentNode.NextNode.NextNode
 			break
 		}
 
-		currentNode = currentNode.nextNode
+		currentNode = currentNode.NextNode
 	}
 
 	return head
@@ -42,14 +42,14 @@ func (list *LinkedList) Size() int {
 
 	for currentNode != nil {
 		count++
-		currentNode = currentNode.nextNode
+		currentNode = currentNode.NextNode
 	}
 
 	return count
 }
 
 func (list *LinkedList) AppendNode(data int) {
-	newNode := &Node{value: data}
+	newNode := &Node{Value: data}
 
 	if list.FirstNode == nil {
 		list.FirstNode = newNode
@@ -58,33 +58,32 @@ func (list *LinkedList) AppendNode(data int) {
 
 	currentNode := list.FirstNode
 
-	for currentNode.nextNode != nil {
-		currentNode = currentNode.nextNode
+	for currentNode.NextNode != nil {
+		currentNode = currentNode.NextNode
 	}
 
-	currentNode.nextNode = newNode
+	currentNode.NextNode = newNode
 }
 
 func (list LinkedList) ShowAll() {
 	var currentNode = list.FirstNode
 
 	if currentNode == nil {
-		fmt.Printf("\nA lista está vázia. \n")
+		fmt.Printf("[]\n")
 		return
 	}
 
-	fmt.Printf("\nLista de elementos : \n")
 	fmt.Printf("[")
 
 	for currentNode != nil {
-		if currentNode.nextNode == nil {
-			fmt.Printf("%d", currentNode.value)
+		if currentNode.NextNode == nil {
+			fmt.Printf("%d", currentNode.Value)
 			break
 		}
 
-		fmt.Printf("%d, ", currentNode.value)
-		currentNode = currentNode.nextNode
+		fmt.Printf("%d, ", currentNode.Value)
+		currentNode = currentNode.NextNode
 	}
 
-	fmt.Printf("]")
+	fmt.Printf("]\n")
 }
