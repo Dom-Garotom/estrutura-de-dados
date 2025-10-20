@@ -17,6 +17,11 @@ As implementações estão organizadas por tópicos, utilizando principalmente a
 
 <br>
 <br>
+
+### Desáfios do LeetCode:
+
+📌 [Desáfio - Remoção do enésimo nó do final de uma lista](LeetCode/RemoverEnesimoNo/)   
+
 <br>
 
 ### Observações
