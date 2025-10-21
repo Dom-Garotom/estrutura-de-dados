@@ -12,6 +12,8 @@ As implementações estão organizadas por tópicos, utilizando principalmente a
 
 📌 [Atividade de lista encadeadas e polinômios](AtividadeDeListas)   
 📌 [Atividade de pilhas -  Balanceamento de expressões](BalanceamentoDeExpressoes)   
+📌 [Atividade de listas duplamente encadeadas -  Inserção ordenada de elementos](InsercaoOrdenada/)   
+📌 [Atividade de listas circulares -  Jogo de Eliminação (Josephus) ](JogoDeEliminacao/)   
 📌 [Atividade de escrita de código -  Clean Code](CleanCode/)   
 
 

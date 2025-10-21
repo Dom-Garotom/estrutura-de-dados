@@ -11,23 +11,30 @@ type LinkedList struct {
 }
 
 func RemoveNthNodeFromEndList(head *LinkedList, removeSteps int) *LinkedList {
-	currentNode := head.FirstNode
-	listSize := head.Size()
-	removePoint := listSize - removeSteps
+	removePointer := head.FirstNode
+	advancerPointer := head.FirstNode
 
-	if removePoint <= 0 {
-		return head
-	}
-
-	for i := range removePoint {
-		if i == (removePoint - 1) {
-			currentNode.NextNode = currentNode.NextNode.NextNode
-			break
+	// adianta o advancerPointer a quantidade de passos passados do removeSteps
+	for range removeSteps {
+		if advancerPointer == nil {
+			return &LinkedList{head.FirstNode.NextNode}
 		}
 
-		currentNode = currentNode.NextNode
+		advancerPointer = advancerPointer.NextNode
 	}
 
+	// percorre a lista com o removePointer N possições atrás do advancedPointer para que ele para no ponto correto de remoção
+	for advancerPointer != nil {
+		if advancerPointer.NextNode != nil {
+			removePointer.NextNode = removePointer.NextNode.NextNode
+			return head
+		}
+
+		removePointer = removePointer.NextNode
+		advancerPointer = advancerPointer.NextNode
+	}
+
+	head.FirstNode = head.FirstNode.NextNode
 	return head
 }
 
