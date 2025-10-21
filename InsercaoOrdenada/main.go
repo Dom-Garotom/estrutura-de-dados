@@ -4,7 +4,9 @@ import doublylinkedlist "github.com/Dom-Garotom/estruturaDeDados/insercaoOrdenad
 
 func main() {
 	list := doublylinkedlist.DoublyLinkedList{}
-
+	
+	list.RemoveValue(10)
+	
 	list.AppendNode(1)
 	list.AppendNode(4)
 	list.AppendNode(3)
@@ -19,4 +21,11 @@ func main() {
 	list.AppendNode(73)
 
 	list.ShowAll()
+
+	list.RemoveValue(10)
+	list.RemoveValue(100)
+	list.RemoveValue(92)
+
+	list.ShowAll()
+
 }

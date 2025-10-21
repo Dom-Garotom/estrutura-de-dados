@@ -1,3 +1,7 @@
+/*
+Package doublylinkedlist fornece estruturas e funções para manipulação
+de listas  duplamente encadeadas.
+*/
 package doublylinkedlist
 
 import "fmt"
@@ -35,15 +39,49 @@ func (list *DoublyLinkedList) AppendNode(value int) {
 	}
 }
 
+func (list *DoublyLinkedList) RemoveValue(value int) {
+	currentNode := list.head
+
+	if currentNode == nil {
+		fmt.Printf("\nA lista está vazia")
+		return
+	}
+
+	for currentNode != nil {
+		if currentNode.nextNode == nil && currentNode.value != value {
+			fmt.Printf("\nEsse valor não existe na lista : %d", value)
+			break
+		}
+
+		if currentNode.nextNode == nil && currentNode.value == value {
+			previousNode := currentNode.previousNode
+			previousNode.nextNode = nil
+			break
+		}
+
+		if currentNode.value == value {
+			previousNode := currentNode.previousNode
+			nextNode := currentNode.nextNode
+
+			previousNode.nextNode = nextNode
+			nextNode.previousNode = previousNode
+			break
+		}
+
+		currentNode = currentNode.nextNode
+	}
+
+}
+
 func (list DoublyLinkedList) ShowAll() {
 	currentNode := list.head
 
 	if currentNode == nil {
-		fmt.Printf("A lista está vazia")
+		fmt.Printf("\nA lista está vazia")
 		return
 	}
 
-	fmt.Printf("[")
+	fmt.Printf("\n[")
 
 	for currentNode != nil {
 		if currentNode.nextNode == nil {
