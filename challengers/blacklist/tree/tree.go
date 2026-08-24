@@ -16,12 +16,17 @@ func New() *Tree {
 type Node struct {
 	left     *Node
 	rigth    *Node
-	Content  int64
+	IP       int32
 	attempts int32
 }
 
-func createNodeTree(content int64) *Node {
+func (node *Node) Attempts() int32 {
+	return node.attempts
+}
+
+func createNodeTree(ip int32) *Node {
 	return &Node{
-		Content: content,
+		IP:       ip,
+		attempts: 1,
 	}
 }

@@ -1,27 +1,20 @@
 package tree
 
 /*
-* Arquivo que contem todas as funções utilitárias do pacote tree
-* Entre eles temos :
-*
-* IsEmpty - verifica se à árvore está vázia
-* Height - verifica à altura da árvore
-* Size - Contabiliza a quantidade de nôs presentes na árvore
-* NumberOfSheets - contabiliza a quantidade de folhas presentes na árvore
-* Contains - verifica se o valor existe na árvore
-* Search - procura pelo valor na árvore
-*
-* */
-
+IsEmpty informa se a arvore nao possui nenhum no.
+*/
 func (tree *Tree) IsEmpty() bool {
 	return tree.root == nil
 }
 
-func (tree *Tree) Height() int64 {
+/*
+Height retorna a altura da arvore.
+*/
+func (tree *Tree) Height() int32 {
 	return calculateHeight(tree.root)
 }
 
-func calculateHeight(node *Node) int64 {
+func calculateHeight(node *Node) int32 {
 	if node == nil {
 		return 0
 	}
@@ -36,11 +29,14 @@ func calculateHeight(node *Node) int64 {
 	return rightHeight + 1
 }
 
-func (tree *Tree) Size() int64 {
+/*
+Size retorna a quantidade total de nos presentes na arvore.
+*/
+func (tree *Tree) Size() int32 {
 	return calculateSize(tree.root)
 }
 
-func calculateSize(node *Node) int64 {
+func calculateSize(node *Node) int32 {
 	if node == nil {
 		return 0
 	}
@@ -51,11 +47,14 @@ func calculateSize(node *Node) int64 {
 	return leftSize + rightSize + 1
 }
 
-func (tree *Tree) NumberOfSheets() int64 {
+/*
+NumberOfSheets retorna a quantidade de folhas da arvore.
+*/
+func (tree *Tree) NumberOfSheets() int32 {
 	return calculateNumberOfSheets(tree.root)
 }
 
-func calculateNumberOfSheets(node *Node) int64 {
+func calculateNumberOfSheets(node *Node) int32 {
 	if node == nil {
 		return 0
 	}
@@ -70,23 +69,26 @@ func calculateNumberOfSheets(node *Node) int64 {
 	return leftSide + rightSide
 }
 
-func (tree *Tree) Contains(value int64) bool {
+/*
+Contains informa se o IP existe na arvore.
+*/
+func (tree *Tree) Contains(value int32) bool {
 	if tree.root == nil {
 		return false
 	}
 
 	currentNode := tree.root
 	for currentNode != nil {
-		if currentNode.Content == value {
+		if currentNode.IP == value {
 			return true
 		}
 
-		if value < currentNode.Content {
+		if value < currentNode.IP {
 			currentNode = currentNode.left
 			continue
 		}
 
-		if value > currentNode.Content {
+		if value > currentNode.IP {
 			currentNode = currentNode.rigth
 			continue
 		}
@@ -95,26 +97,28 @@ func (tree *Tree) Contains(value int64) bool {
 	return false
 }
 
-func (tree *Tree) Search(value int64) *Node {
-	if tree.root == nil {
+/*
+SearchInOrder procura um IP usando percurso em ordem.
+*/
+func (tree *Tree) SearchInOrder(value int32) *Node {
+	return inOrder(tree.root, value)
+}
+
+func inOrder(node *Node, searchValue int32) *Node {
+	if node == nil {
 		return nil
 	}
 
-	currentNode := tree.root
-	for currentNode != nil {
-		if currentNode.Content == value {
-			return currentNode
-		}
+	if foundNode := inOrder(node.left, searchValue); foundNode != nil {
+		return foundNode
+	}
 
-		if value < currentNode.Content {
-			currentNode = currentNode.left
-			continue
-		}
+	if node.IP == searchValue {
+		return node
+	}
 
-		if value > currentNode.Content {
-			currentNode = currentNode.rigth
-			continue
-		}
+	if foundNode := inOrder(node.rigth, searchValue); foundNode != nil {
+		return foundNode
 	}
 
 	return nil
