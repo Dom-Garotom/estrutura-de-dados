@@ -11,3 +11,10 @@ ponteiro_esquerdo e ponteiro_direito
 
 ## 3. Funcionalidades a Implementar
 inserir(IP): Adiciona um IP à árvore. Se o IP já existir, apenas incremente o contador_tentativas.buscar(IP): Retorna se o IP está bloqueado e exibe o número de tentativas registradas.relatorio_ordenado(): Exibe todos os IPs bloqueados em ordem crescente (dica: qual percurso em árvore faz isso?).remover(IP): Remove um IP da lista negra quando ele cumprir o tempo de penalidade.
+
+
+### Como rodar
+```ts
+docker build -t blacklist .
+docker run --rm blacklist
+```
